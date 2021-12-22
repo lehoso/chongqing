@@ -2,6 +2,7 @@ from lianjia2.bar import *
 from lianjia2.pie import *
 from lianjia2.plots import *
 from lianjia2.scatter import *
+from lianjia2.scatter2 import *
 from lianjia2.recommendation import *
 from lianjia2.forecast import *
 
@@ -12,5 +13,6 @@ if __name__ == '__main__':
     pie.transfer(data)
     plots.transfer(data)
     scatter.transfer(data)
+    scatter2.transfer(data)
     forecast.tansfer(data)
     recommendation.tansfer(data)
