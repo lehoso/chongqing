@@ -25,6 +25,7 @@ class scatter2:
     def get_hot_areaPractice(data):
         group = data.groupby('面积')  # 将房子区域分组
         totalPraise = group['总价'].mean().sort_values(ascending=False)
+        print(totalPraise)
         x = totalPraise.index
         y = totalPraise.values.astype(float)
         return x, y
@@ -32,29 +33,31 @@ class scatter2:
     def get_hot_areaScatter(x, y, title):
         colors = y * 100
         area = y * 1  # 根据y值的大小生成不同形状
-        print(colors)
+        # print(colors)
         # c=colors,marker="o",s=area
         # alpha=0.3
         plt.scatter(y, x, c=colors, marker="o", s=area, alpha=0.5)
         plt.colorbar()  # 绘制颜色对照条
         plt.title(title, fontsize=20)  # 表标题文字
         plt.xlabel('总价：万')
-        plt.ylabel('十佳地段')
+        plt.ylabel('面积：平米')
         plt.grid()
         plt.show()
 
     def transfer(data):
         clean = scatter2.get_clean(data)
         x, y = scatter2.get_hot_areaPractice(clean)
-        title = '重庆各区域描述解析分布'
+        title = '重庆面积和总价正态分布'
         scatter2.get_hot_areaScatter(x, y, title)
 
 
-# if __name__ == '__main__':
-#     data = 'cq_pre-owned_house2.csv'
-#     clean = scatter2.get_clean(data)
-#     x, y = scatter2.get_hot_areaPractice(clean)
-#     title = '重庆最佳地段总价'
-#     scatter2.get_hot_areaScatter(x, y, title)
+if __name__ == '__main__':
+    data = 'cq_pre-owned_house2.csv'
+    clean = scatter2.get_clean(data)
+    x, y = scatter2.get_hot_areaPractice(clean)
+    print(x)
+    print(y)
+    title = '重庆面积和总价正态分布'
+    scatter2.get_hot_areaScatter(x, y, title)
 
 # https://matplotlib.org/stable/gallery/lines_bars_and_markers/scatter_with_legend.html#sphx-glr-gallery-lines-bars-and-markers-scatter-with-legend-py

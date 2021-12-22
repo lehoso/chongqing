@@ -49,7 +49,10 @@ cq.pre-owned_house2.csv/cq.pre-owned_house2.sql
 
 重庆各区域描述解析分布
 
-### scatter-2.py（散点图）
+### scatter2.py(散点图)
+重庆面积和总价正态分布
+
+### scatter-3.py（散点图）
 
 主城最佳地段均值分布
 
